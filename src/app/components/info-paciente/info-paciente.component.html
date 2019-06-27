@@ -6,20 +6,16 @@
         <ion-label>{{ paciente.nombre }}</ion-label>
       </ion-item>
     </ion-list>
-    <form [formGroup]="forma" (ngSubmit)="registrarF(forma)">
-        <ion-icon name="person-add" color="header" slot="start">Familiar</ion-icon>
-        <ion-badge color="secondary">Familiar</ion-badge>
-      <ion-item>
-          <ion-label position="floating">Ingrese nombre del familiar</ion-label>
-          <ion-input type="text" formControlName="nombre"></ion-input>
-      </ion-item>
 
-      <ion-item>
-          <ion-label position="floating">Ingrese número del familiar</ion-label>
-          <ion-input type="text" formControlName="telefono"></ion-input>
-      </ion-item>
+    <ion-button (click)="regFamiliar()">
+      Registrar Familiar
+    </ion-button>
+    <ion-button (click)="actualizar()">
+      ACtualizar
+    </ion-button>
 
-      <ion-button expand="block" fill="outline" color="header" type="submit">Registrar</ion-button>
-    </form>
+    <ion-button (click)="calendario()">
+      Calendario
+    </ion-button>
   </ion-card-content>
 </ion-card>

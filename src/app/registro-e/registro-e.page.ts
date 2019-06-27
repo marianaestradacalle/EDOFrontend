@@ -3,6 +3,7 @@ import { FormGroup, FormControl, NgModel, Validators, AbstractControl } from '@a
 import { Router } from '@angular/router';
 import { EncargadoService } from 'src/app/services/encargado.service';
 import { AlertsService } from '../services/alerts.service';
+import { ModalController } from '@ionic/angular';
 
 
 
@@ -18,8 +19,9 @@ export class RegistroEPage implements OnInit {
   constructor(
     private router: Router,
     private encargadoService: EncargadoService,
-    private alertService: AlertsService) {
-
+    private alertService: AlertsService,
+    private modalCtrl: ModalController) {
+// 
     this.forma = new FormGroup({
       cc: new FormControl('', [Validators.required, Validators.pattern('[0-9]{8,10}'), Validators.maxLength(10), Validators.minLength(8)]),
       nombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZÑñ ]{1,30}'), Validators.maxLength(30), Validators.minLength(1)]),
@@ -33,7 +35,6 @@ export class RegistroEPage implements OnInit {
     });
     console.log(this.forma);
   }
-
 
   get ccForm() { return this.forma.get('cc') }
   get nombreForm() { return this.forma.get('nombre') }

@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegistroEventoComponent } from './registro-evento.component';
+import { ActPacienteComponent } from './act-paciente.component';
 
-describe('RegistroEventoComponent', () => {
-  let component: RegistroEventoComponent;
-  let fixture: ComponentFixture<RegistroEventoComponent>;
+describe('ActPacienteComponent', () => {
+  let component: ActPacienteComponent;
+  let fixture: ComponentFixture<ActPacienteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegistroEventoComponent ],
+      declarations: [ ActPacienteComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegistroEventoComponent);
+    fixture = TestBed.createComponent(ActPacienteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

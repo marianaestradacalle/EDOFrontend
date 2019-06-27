@@ -1,21 +1,23 @@
-
 <ion-content>
 
-    <ion-slides>
-        <ion-slide *ngFor="let contenido of data">
-            <ion-card>
-                <ion-card-header>
-                    <img [src]="contenido.img">
-                </ion-card-header>
-                <ion-card-content>
-                    <ion-card-title>{{contenido.titulo}}</ion-card-title>
-                    <br>
-                    <ion-item>{{contenido.text}}</ion-item>
-                </ion-card-content>
-                <ion-card-subtitle>{{contenido.autor}}</ion-card-subtitle>
-            </ion-card>
-    
-        </ion-slide>
-    </ion-slides>
+    <ion-grid>
+        <ion-row >
+            <ion-slides mode="ios" pager= "true" [options]="animation">
+                <ion-slide *ngFor="let contenido of data">
+                    <ion-card  class="tarj">
+                        <ion-card-header>
+                            <img [src]="contenido.img">
+                        </ion-card-header>
+                        <ion-card-content>
+                            <ion-card-title>{{contenido.titulo}}</ion-card-title>
+                            <br>
+                            <ion-item class="text">{{contenido.text}}</ion-item>
+                        </ion-card-content>
+                        <ion-card-subtitle>{{contenido.autor}}</ion-card-subtitle>
+                    </ion-card>
+                </ion-slide>
+            </ion-slides>
+        </ion-row>
+    </ion-grid>
 
 </ion-content>

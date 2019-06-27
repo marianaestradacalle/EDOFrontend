@@ -8,7 +8,7 @@ export const environment = {
 
 // export const URL_API = 'http://192.168.0.17:3000/';
 //export const URL_API = 'http://192.168.1.14:3000/';
-export const URL_API = 'http://10.12.19.69:3000/';
+export const URL_API = 'http://10.12.19.99:3000/';
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -11,13 +11,13 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import {SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
-import {URL_API} from '../environments/environment';
-import {AlertsService} from './services/alerts.service';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { AlertsService } from './services/alerts.service';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { NgCalendarModule } from 'ionic2-calendar';
+import { environment } from '../environments/environment.prod';
 
-const config: SocketIoConfig = {url: URL_API, options: {}};
+const config: SocketIoConfig = { url: environment.server, options: {} };
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,8 +26,8 @@ const config: SocketIoConfig = {url: URL_API, options: {}};
     IonicModule.forRoot(),
     SocketIoModule.forRoot(config),
     AppRoutingModule,
-  HttpClientModule,
-ComponentsModule],
+    HttpClientModule,
+    ComponentsModule],
   providers: [
     StatusBar,
     SplashScreen,
@@ -38,4 +38,4 @@ ComponentsModule],
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -13,7 +13,9 @@
 
 
 <ion-content>
-
+    <ion-button (click)="dismiss()">
+        back
+    </ion-button>
     <!-- Card for adding a new event
     <ion-card>
         <ion-card-header tappable (click)="collapseCard = !collapseCard">
@@ -47,13 +49,16 @@
     <ion-row>
         <!-- Change the displayed calendar mode -->
         <ion-col size="4">
-            <ion-button expand="block" [color]="calendar.mode == 'month' ? 'primary' : 'secondary'" (click)="changeMode('month')">Mes</ion-button>
+            <ion-button expand="block" [color]="calendar.mode == 'month' ? 'primary' : 'secondary'"
+                (click)="changeMode('month')">Mes</ion-button>
         </ion-col>
         <ion-col size="4">
-            <ion-button expand="block" [color]="calendar.mode == 'week' ? 'primary' : 'secondary'" (click)="changeMode('week')">Semana</ion-button>
+            <ion-button expand="block" [color]="calendar.mode == 'week' ? 'primary' : 'secondary'"
+                (click)="changeMode('week')">Semana</ion-button>
         </ion-col>
         <ion-col size="4">
-            <ion-button expand="block" [color]="calendar.mode == 'day' ? 'primary' : 'secondary'" (click)="changeMode('day')">Dia</ion-button>
+            <ion-button expand="block" [color]="calendar.mode == 'day' ? 'primary' : 'secondary'"
+                (click)="changeMode('day')">Dia</ion-button>
         </ion-col>
 
         <!-- Move back one screen of the slides -->
@@ -71,11 +76,12 @@
         </ion-col>
     </ion-row>
 
-    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate" (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)" (onTimeSelected)="onTimeSelected($event)" startHour="6"
-        endHour="20" step="30" startingDayWeek="1">
+    <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
+        (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)"
+        (onTimeSelected)="onTimeSelected($event)" startHour="6" endHour="20" step="30" startingDayWeek="1">
     </calendar>
 
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="header" routerLink="/registro-event">
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="header" (click)="agregar()">
         <ion-fab-button>
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>

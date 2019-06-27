@@ -1,8 +1,10 @@
 import { CalendarComponent } from 'ionic2-calendar/calendar';
-import { Component, OnInit, Inject, LOCALE_ID, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject, LOCALE_ID, ViewChild, Input } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { formatDate } from '@angular/common';
+import { EventoService } from '../services/evento.service';
+
 
 @Component({
   selector: 'app-registro-event',
@@ -11,12 +13,15 @@ import { formatDate } from '@angular/common';
 })
 export class RegistroEventPage implements OnInit {
 
+  @Input() paciente;
   event = {
-    Titulo: '',
-    Descripcion: '',
-    Inicio: '',
-    Fin: '',
-    Dia: false
+    nombre: '',
+    descripcion: '',
+    inicio: '',
+    fin: '',
+    Dia: false,
+    paciente: '',
+    recordar: false
   };
 
   minDate = new Date().toISOString();
@@ -31,7 +36,11 @@ export class RegistroEventPage implements OnInit {
 
   @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
-  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string, private router: Router ) { }
+  constructor(
+    private alertCtrl: AlertController,
+    @Inject(LOCALE_ID) private locale: string,
+    private router: Router,
+    private eventoService: EventoService) { }
 
   ngOnInit() {
     this.resetEvent();
@@ -39,22 +48,24 @@ export class RegistroEventPage implements OnInit {
 
   resetEvent() {
     this.event = {
-      Titulo: '',
-      Descripcion: '',
-      Inicio: new Date().toISOString(),
-      Fin: new Date().toISOString(),
-      Dia: false
+      nombre: '',
+      descripcion: '',
+      inicio: new Date().toISOString(),
+      fin: new Date().toISOString(),
+      Dia: false,
+      paciente: this.paciente._id,
+      recordar: false
     };
   }
 
   // Create the right event format and reload source
   addEvent() {
     const eventCopy = {
-      title: this.event.Titulo,
-      startTime:  new Date(this.event.Inicio),
-      endTime: new Date(this.event.Fin),
+      title: this.event.nombre,
+      startTime: new Date(this.event.inicio),
+      endTime: new Date(this.event.fin),
       allDay: this.event.Dia,
-      desc: this.event.Descripcion
+      desc: this.event.descripcion
     };
 
     if (eventCopy.allDay) {
@@ -65,9 +76,13 @@ export class RegistroEventPage implements OnInit {
       eventCopy.endTime = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate() + 1));
     }
 
+    this.eventoService.registrar(this.event)
+      .subscribe(value => console.log('value', value));
+    this.eventoService.registrar
     this.eventSource.push(eventCopy);
+
     this.resetEvent();
-    this.router.navigate(['calendar']);
+    // this.router.navigate(['calendar']);
   }
 
   onViewTitleChanged(title) {
@@ -82,7 +97,7 @@ export class RegistroEventPage implements OnInit {
 
     const alert = await this.alertCtrl.create({
       header: event.Titulo,
-      subHeader: event.Descripcion,
+      subHeader: event.descripcion,
       message: 'De: ' + start + '<br><br>Hasta: ' + end,
       buttons: ['OK']
     });
@@ -92,9 +107,9 @@ export class RegistroEventPage implements OnInit {
   // Time slot was clicked
   onTimeSelected(ev) {
     const selected = new Date(ev.selectedTime);
-    this.event.Inicio = selected.toISOString();
+    this.event.inicio = selected.toISOString();
     selected.setHours(selected.getHours() + 1);
-    this.event.Fin = (selected.toISOString());
+    this.event.fin = (selected.toISOString());
   }
 
 }

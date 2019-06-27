@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {URL_API} from '../../environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
     providedIn: 'root'
 })
 export class EncargadoService {
-    url = URL_API;
+    url = environment.server;
     encargado;
     id = localStorage.getItem('_id');
 

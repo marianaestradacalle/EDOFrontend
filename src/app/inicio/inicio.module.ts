@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
@@ -14,7 +14,10 @@ import { InfoPacienteComponent } from '../components/info-paciente/info-paciente
 import { TarjetasComponent } from '../components/tarjetas/tarjetas.component';
 import { CalendarPage } from '../calendar/calendar.page';
 import { NgCalendarModule } from 'ionic2-calendar';
-import { CalendarioComponent } from '../components/calendario/calendario.component';
+import { RegFamiliarComponent } from '../components/reg-familiar/reg-familiar.component';
+import { ActPacienteComponent } from '../components/act-paciente/act-paciente.component';
+import { RegistroEPage } from '../registro-e/registro-e.page';
+import { RegistroEventPage } from '../registro-event/registro-event.page';
 
 
 const routes: Routes = [
@@ -25,10 +28,11 @@ const routes: Routes = [
       { path: 'registro-p', component: RegistroPComponent },
       { path: 'info-paciente/:id', component: InfoPacienteComponent },
       { path: 'tarjetas', component: TarjetasComponent },
-      { path: 'calendar', component: CalendarioComponent},
-      { path: 'calendar', loadChildren: '../calendar/calendar.module#CalendarPageModule'},
+      // { path: 'calendar', component: CalendarioComponent },
+      { path: 'calendar', loadChildren: '../calendar/calendar.module#CalendarPageModule' },
       // { path: '**', pathMatch: 'full', redirectTo: 'tarjetas' }
-    ]}
+    ]
+  }
 ];
 
 @NgModule({
@@ -36,10 +40,12 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
     ComponentsModule,
     NgCalendarModule,
   ],
-  declarations: [InicioPage, CalendarioComponent]
+  declarations: [InicioPage, RegFamiliarComponent, CalendarPage, RegistroEventPage, ActPacienteComponent],
+  entryComponents: [RegFamiliarComponent, ActPacienteComponent, CalendarPage, RegistroEventPage]
 })
-export class InicioPageModule {}
+export class InicioPageModule { }

@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {URL_API} from '../../environments/environment';
 import {EncargadoService} from './encargado.service';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
     providedIn: 'root'
 })
 export class PacienteService {
-    url = URL_API;
+    url = environment.server;
     Paciente;
 
     constructor(private http: HttpClient, private encargadoService: EncargadoService) {
@@ -31,7 +31,7 @@ export class PacienteService {
     }
 
     actualizarP(body) {
-        return this.http.put(this.url, 'paciente', body);
+        return this.http.put(`${this.url}paciente`, body);
     }
 
     registrarF(body) {

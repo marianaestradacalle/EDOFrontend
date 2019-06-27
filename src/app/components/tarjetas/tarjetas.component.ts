@@ -10,8 +10,19 @@ export class TarjetasComponent implements OnInit {
 
   data = datos;
 
-  constructor() { }
+  animation = {
+    speed: 300,
+    loop: true,    
+  grabCursor: true,
+    shadow: true,
+    slideShadows: true,
+    shadowOffset: 20,
+    shadowScale: 0.94,
+  }
+  constructor() {}
 
   ngOnInit() {}
 
-}
+
+
+}   

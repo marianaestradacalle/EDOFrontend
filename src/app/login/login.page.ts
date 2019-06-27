@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EncargadoService } from 'src/app/services/encargado.service';
 import { AlertsService } from 'src/app/services/alerts.service';
+import { ToastController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginPage implements OnInit {
   constructor(
     private router: Router,
     private encargadoService: EncargadoService,
-    private alertService: AlertsService
+    private alertService: AlertsService,
+    public alertController: AlertController
   ) {
     this.forma = new FormGroup({
       cc: new FormControl('', [
@@ -37,11 +39,18 @@ export class LoginPage implements OnInit {
     this.encargadoService.login(form.value).subscribe((value: any) => {
       // this.alertService.loadingController.dismiss();
       this.encargadoService.encargado = value;
-      this.router.navigate(['inicio']);
-      localStorage.setItem('_id', value._id)
-      console.log(value);
-    });
+      this.router.navigate(['inicio/tarjetas']);
+      localStorage.setItem('_id', value._id)  
+    }, () => this.presentAlert('Por favor, verifique su cédula o contraseña'));
     console.log(form);
+  }
+
+  async presentAlert(message: string) {
+    const alert = await this.alertController.create({
+      message,
+      buttons: ['Cerrar']
+    });
+    await alert.present();
   }
 
 }

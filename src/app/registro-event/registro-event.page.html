@@ -11,24 +11,27 @@
         <ion-card-content *ngIf="!collapseCard">
 
             <ion-item>
-                <ion-input type="text" placeholder="Titulo" [(ngModel)]="event.Titulo"></ion-input>
+                <ion-input type="text" placeholder="Titulo" [(ngModel)]="event.nombre"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-input type="text" placeholder="Descripcion" [(ngModel)]="event.Descripcion"></ion-input>
+                <ion-input type="text" placeholder="Descripcion" [(ngModel)]="event.descripcion"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label>Inicio</ion-label>
-                <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.Inicio" [min]="minDate"></ion-datetime>
+                <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.inicio"
+                    [min]="minDate"></ion-datetime>
             </ion-item>
             <ion-item>
                 <ion-label>Fin</ion-label>
-                <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.Fin" [min]="minDate"></ion-datetime>
+                <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.fin"
+                    [min]="minDate"></ion-datetime>
             </ion-item>
             <ion-item>
                 <ion-label>¿Desea el recordatorio todo el día?</ion-label>
-                <ion-checkbox [(ngModel)]="event.Dia"></ion-checkbox>
+                <ion-checkbox [(ngModel)]="event.recordar"></ion-checkbox>
             </ion-item>
-            <ion-button fill="outline" expand="block" (click)="addEvent()" [disabled]="event.Titulo == ''">Agregar evento</ion-button>
+            <ion-button fill="outline" expand="block" (click)="addEvent()" [disabled]="event.titulo == ''">Agregar
+                evento</ion-button>
 
         </ion-card-content>
     </ion-card>

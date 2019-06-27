@@ -26,6 +26,6 @@ const routes: Routes = [
     ComponentsModule,
     NgCalendarModule
   ],
-  declarations: [RegistroEventPage]
+  declarations: []
 })
 export class RegistroEventPageModule {}

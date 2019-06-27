@@ -1,15 +1,22 @@
-<app-header></app-header>
+
+<app-header titulo="REGISTRO ENCARGADO"></app-header>
 
 
-<ion-content padding>
 
-    <h1 style="text-align: center" color="titulos">REGISTRO ENCARGADO</h1>
+
+<ion-content padding >
+
+        <img src="/assets/ioncr.png" class="icon">
+    <!-- <h1 style="text-align: center" color="titulos">REGISTRO ENCARGADO</h1> -->
     <div class="regis">
+
+        
         <form [formGroup]="forma" (ngSubmit)="registrarE(forma)">
 
             <ion-item >
                 <ion-label position="floating">Ingrese su cédula</ion-label>
-                <ion-input type="text" formControlName="cc"></ion-input>
+                <br>
+                <ion-input type="number" formControlName="cc"></ion-input>
             </ion-item>
 
             <!-- <ion-item *ngIf="forma.get('cc').errors && myForm.get('cc').dirty">
@@ -17,7 +24,6 @@
             </ion-item> -->
             <div class="validation-errors">
                 <ng-container *ngIf="ccForm.invalid && (ccForm.dirty || ccForm.touched)">
-                    <div class="error-message" *ngIf="ccForm.errors.pattern">Solo se permiten números</div>
                     <div class="error-message" *ngIf="ccForm.errors.required">La cédula es requerida</div>
                     <div class="error-message" *ngIf="ccForm.errors.maxlength">Debe contener máximo 10 números</div>
                     <div class="error-message" *ngIf="ccForm.errors.minlength">Debe contener mínimo 8 números</div>
@@ -35,6 +41,7 @@
 
             <ion-item>
                 <ion-label position="floating">Ingrese su nombre</ion-label>
+                <br>
                 <ion-input type="text" formControlName="nombre"></ion-input>
             </ion-item>
 
@@ -49,6 +56,7 @@
 
             <ion-item>
                 <ion-label position="floating">Ingrese sus apellidos</ion-label>
+                <br>
                 <ion-input type="text" formControlName="apellido"></ion-input>
             </ion-item>
 
@@ -63,12 +71,12 @@
 
             <ion-item>
                 <ion-label position="floating">Ingrese su número de celular</ion-label>
+                <br>
                 <ion-input type="number" formControlName="telefono"></ion-input>
             </ion-item>
 
             <div class="validation-errors">
                 <ng-container *ngIf="telefonoForm.invalid && (telefonoForm.dirty || telefonoForm.touched)">
-                    <div class="error-message" *ngIf="telefonoForm.errors.pattern">Solo se permiten números</div>
                     <div class="error-message" *ngIf="telefonoForm.errors.required">El número de celular es requerido</div>
                     <div class="error-message" *ngIf="telefonoForm.errors.maxlength">Debe contener mínimo 10 números y
                          máximo 15 números</div>
@@ -78,6 +86,7 @@
 
             <ion-item>
                 <ion-label position="floating" type="text">Ingrese su contraseña</ion-label>
+                <br>
                 <ion-input type="password" formControlName="contrasena"></ion-input>
             </ion-item>
 
@@ -94,6 +103,7 @@
 
            <ion-item>
                 <ion-label position="floating" type="text">Confirmar su contraseña</ion-label>
+                <br>
                 <ion-input type="password" formControlName="contrasena_c"></ion-input>
             </ion-item>
 

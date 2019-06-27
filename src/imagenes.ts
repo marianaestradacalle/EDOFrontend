@@ -1,6 +1,6 @@
 export const datos = [
     {
-        img: 'assets/img7.jpg',
+        img: 'assets/img7.png',
         titulo: '¿Qué es el alzheimer?',
         text: `El alzheimer es la forma más común de demencia, este afecta todas las funciones cognitivas como:
         La memoria.
@@ -11,7 +11,7 @@ export const datos = [
 
     },
     {
-        img: 'assets/img11.jpg',
+        img: 'assets/img11.png',
         titulo: 'Orientación para el cuidado del cuidador',
         text: `
         Grupos de autoayuda.
@@ -39,13 +39,13 @@ export const datos = [
         autor: '- Gabriel García Márquez'
     },
     {
-        img: 'assets/img3.jpg',
+        img: 'assets/img3.png',
         titulo: '',
         text: `La memoria es un trozo infinito, a veces se hace invisible y grita, pero a veces se encierra en su silencio`,
         autor: '- Alzheimer universal'
     },
     {
-        img: 'assets/img4.jpg',
+        img: 'assets/img4.png',
         titulo: 'Consejos cognitivos',
         text: `Intentar que mantenga la información personal más básica (nombre, dirección, nombre de su mujer, padres, hijos, trabajo…).
         
@@ -55,19 +55,19 @@ export const datos = [
         autor: ''
     },
     {
-        img: 'assets/img5.jpg',
+        img: 'assets/img5.png',
         titulo: '',
         text: `El alzheimer borra la memoria, no los sentimientos`,
         autor: '- Parcual Margall'
     },
     {
-        img: 'assets/img12.jpg',
+        img: 'assets/img12.png',
         titulo: '',
         text: `Si no cuidamos de los cuidadores, no tendremos un enfermo, sino dos`,
         autor: '- Pedro Simón.'
     },
     {
-        img: 'assets/img.jpg',
+        img: 'assets/img.png',
         titulo: '',
         text: ` Y fue perdiéndose en esa maraña invisible que es la NADA,
 
@@ -88,7 +88,7 @@ export const datos = [
         autor: '- R.del Burgo'
     },
     {
-        img: 'assets/img8.jpg',
+        img: 'assets/img8.png',
         titulo: 'Memoria a largo plazo',
         text: `Rememorar acontecimientos pasados como el lugar donde vivía en la infancia, su trabajo, eventos importantes e incluso datos personales.
 
@@ -98,7 +98,7 @@ export const datos = [
         autor: ''
     },
     {
-        img: 'assets/img10.jpg',
+        img: 'assets/img10.png',
         titulo: 'En caso de delirios y alucinaciones . . .',
         text: `Tome nota de lo que la persona está experimentando y discuta el problema con el médico.
 
