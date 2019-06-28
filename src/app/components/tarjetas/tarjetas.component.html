@@ -1,10 +1,10 @@
 <ion-content>
 
     <ion-grid>
-        <ion-row >
-            <ion-slides mode="ios" pager= "true" [options]="animation">
+        <ion-row>
+            <ion-slides mode="ios" color="card" pager="true" [options]="animation">
                 <ion-slide *ngFor="let contenido of data">
-                    <ion-card  class="tarj">
+                    <ion-card class="tarj">
                         <ion-card-header>
                             <img [src]="contenido.img">
                         </ion-card-header>

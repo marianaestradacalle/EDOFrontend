@@ -14,12 +14,14 @@ export class RegFamiliarComponent implements OnInit {
   forma: FormGroup;
   parametro: any;
   @Input() paciente: any;
+  @Input() titulo: string;
 
   constructor(
     private pacienteService: PacienteService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private modalCtrl: ModalController) {
+
     this.forma = new FormGroup({
       nombre: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]),
       telefono: new FormControl('', Validators.pattern(''))

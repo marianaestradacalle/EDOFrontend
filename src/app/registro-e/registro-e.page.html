@@ -1,22 +1,24 @@
-
-<app-header titulo="REGISTRO ENCARGADO"></app-header>
-
-
+<app-header titulo="REGISTRO ENCARGADO">
+</app-header>
 
 
-<ion-content padding >
 
-        <img src="/assets/ioncr.png" class="icon">
-    <!-- <h1 style="text-align: center" color="titulos">REGISTRO ENCARGADO</h1> -->
+
+<ion-content padding>
+
+    <div class="img">
+        <img src="/assets/ioncr.png">
+    </div>
+
     <div class="regis">
 
-        
+
         <form [formGroup]="forma" (ngSubmit)="registrarE(forma)">
 
-            <ion-item >
+            <ion-item>
                 <ion-label position="floating">Ingrese su cédula</ion-label>
-                <br>
                 <ion-input type="number" formControlName="cc"></ion-input>
+                <br>
             </ion-item>
 
             <!-- <ion-item *ngIf="forma.get('cc').errors && myForm.get('cc').dirty">
@@ -41,8 +43,8 @@
 
             <ion-item>
                 <ion-label position="floating">Ingrese su nombre</ion-label>
-                <br>
                 <ion-input type="text" formControlName="nombre"></ion-input>
+                <br>
             </ion-item>
 
             <div class="validation-errors">
@@ -50,14 +52,14 @@
                     <div class="error-message" *ngIf="nombreForm.errors.pattern">Solo se permiten letras</div>
                     <div class="error-message" *ngIf="nombreForm.errors.required">El nombre es requerido</div>
                     <div class="error-message" *ngIf="nombreForm.errors.maxlength">Debe contener máximo 30 caracteres</div>
-                    
+
                 </ng-container>
             </div>
 
             <ion-item>
                 <ion-label position="floating">Ingrese sus apellidos</ion-label>
-                <br>
                 <ion-input type="text" formControlName="apellido"></ion-input>
+                <br>
             </ion-item>
 
             <div class="validation-errors">
@@ -65,29 +67,28 @@
                     <div class="error-message" *ngIf="apellidoForm.errors.pattern">Solo se permiten letras</div>
                     <div class="error-message" *ngIf="apellidoForm.errors.required">El apellido es requerido</div>
                     <div class="error-message" *ngIf="apellidoForm.errors.maxlength">Debe contener máximo 30 caracteres</div>
-                    
+
                 </ng-container>
             </div>
 
             <ion-item>
                 <ion-label position="floating">Ingrese su número de celular</ion-label>
-                <br>
                 <ion-input type="number" formControlName="telefono"></ion-input>
+                <br>
             </ion-item>
 
             <div class="validation-errors">
                 <ng-container *ngIf="telefonoForm.invalid && (telefonoForm.dirty || telefonoForm.touched)">
                     <div class="error-message" *ngIf="telefonoForm.errors.required">El número de celular es requerido</div>
-                    <div class="error-message" *ngIf="telefonoForm.errors.maxlength">Debe contener mínimo 10 números y
-                         máximo 15 números</div>
-                    
+                    <div class="error-message" *ngIf="telefonoForm.errors.maxlength">Debe contener mínimo 10 números y máximo 15 números</div>
+
                 </ng-container>
             </div>
 
             <ion-item>
                 <ion-label position="floating" type="text">Ingrese su contraseña</ion-label>
-                <br>
                 <ion-input type="password" formControlName="contrasena"></ion-input>
+                <br>
             </ion-item>
 
             <div class="validation-errors">
@@ -97,25 +98,25 @@
                         Solo se permiten números y letras, no se permiten caracteres especiales
                     </div>
                     <div class="error-message" *ngIf="contrasenaForm.errors.maxlength">Debe contener máximo 14 caracteres</div>
-                    <div class="error-message" *ngIf="contrasenaForm.errors.minlength">Debe contener mínimo 8 caracteres</div>   
+                    <div class="error-message" *ngIf="contrasenaForm.errors.minlength">Debe contener mínimo 8 caracteres</div>
                 </ng-container>
             </div>
 
-           <ion-item>
+            <ion-item>
                 <ion-label position="floating" type="text">Confirmar su contraseña</ion-label>
-                <br>
                 <ion-input type="password" formControlName="contrasena_c"></ion-input>
+                <br>
             </ion-item>
 
             <div class="validation-errors">
                 <ng-container *ngIf="contrasenaCForm.invalid && (contrasenaCForm.dirty || contrasenaCForm.touched)">
                     <div class="error-message" *ngIf="contrasenaCForm.errors.error">Las contraseñas no coinciden</div>
-                    <div class="error-message" *ngIf="contrasenaCForm.errors.required">Se requiere confirmar la contraseña</div>     
+                    <div class="error-message" *ngIf="contrasenaCForm.errors.required">Se requiere confirmar la contraseña</div>
                 </ng-container>
             </div>
             <br>
 
-            <ion-button class="btnreg" color="header" type="submit">Registrarse</ion-button>
+            <ion-button expand="block" fill="outline" class="btnreg" color="header" type="submit">Registrarse</ion-button>
         </form>
 
 

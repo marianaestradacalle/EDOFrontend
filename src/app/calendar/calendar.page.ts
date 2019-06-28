@@ -13,6 +13,8 @@ import { EventoService } from '../services/evento.service';
 export class CalendarPage implements OnInit {
 
   @Input() paciente;
+  @Input() titulo: string;
+
   event = {
     nombre: '',
     descripcion: '',
@@ -63,8 +65,8 @@ export class CalendarPage implements OnInit {
           };
           this.eventSource.push(eventCopy);
         }
-        console.log(values)
-      })
+        console.log(values);
+      });
   }
 
   // Change current month/week/day
@@ -123,19 +125,21 @@ export class CalendarPage implements OnInit {
     // using the injected ModalController this page
     // can "dismiss" itself and optionally pass back data
     this.modalCtrl.dismiss({
+      // tslint:disable-next-line:object-literal-key-quotes
       'dismissed': true
     });
   }
   async presentModal(component) {
     const modal = await this.modalController.create({
-      component: component,
+      component,
       componentProps: {
-        'paciente': this.paciente,
+        paciente: this.paciente,
       }
     });
     return await modal.present();
   }
   agregar() {
-    this.presentModal(RegistroEventPage)
+    this.presentModal(RegistroEventPage);
   }
+
 }

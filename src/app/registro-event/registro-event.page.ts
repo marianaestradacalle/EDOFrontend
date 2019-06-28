@@ -1,6 +1,6 @@
 import { CalendarComponent } from 'ionic2-calendar/calendar';
 import { Component, OnInit, Inject, LOCALE_ID, ViewChild, Input } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { formatDate } from '@angular/common';
 import { EventoService } from '../services/evento.service';
@@ -14,6 +14,8 @@ import { EventoService } from '../services/evento.service';
 export class RegistroEventPage implements OnInit {
 
   @Input() paciente;
+  @Input() titulo: string;
+
   event = {
     nombre: '',
     descripcion: '',
@@ -40,7 +42,8 @@ export class RegistroEventPage implements OnInit {
     private alertCtrl: AlertController,
     @Inject(LOCALE_ID) private locale: string,
     private router: Router,
-    private eventoService: EventoService) { }
+    private eventoService: EventoService,
+    private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.resetEvent();
@@ -78,7 +81,7 @@ export class RegistroEventPage implements OnInit {
 
     this.eventoService.registrar(this.event)
       .subscribe(value => console.log('value', value));
-    this.eventoService.registrar
+    this.eventoService.registrar(this.event);
     this.eventSource.push(eventCopy);
 
     this.resetEvent();
@@ -110,6 +113,14 @@ export class RegistroEventPage implements OnInit {
     this.event.inicio = selected.toISOString();
     selected.setHours(selected.getHours() + 1);
     this.event.fin = (selected.toISOString());
+  }
+
+  dismiss() {
+    // using the injected ModalController this page
+    // can "dismiss" itself and optionally pass back data
+    this.modalCtrl.dismiss({
+      'dismissed': true
+    });
   }
 
 }

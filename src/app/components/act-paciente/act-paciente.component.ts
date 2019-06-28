@@ -15,6 +15,8 @@ export class ActPacienteComponent implements OnInit {
   @Input() paciente;
   forma: FormGroup;
 
+  @Input() titulo: string;
+
   constructor(
     private router: Router,
     private pacienteService: PacienteService,

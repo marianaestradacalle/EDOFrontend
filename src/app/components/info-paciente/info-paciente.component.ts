@@ -60,15 +60,15 @@ export class InfoPacienteComponent implements OnInit {
 
   async presentModal(component) {
     const modal = await this.modalController.create({
-      component: component,
+      component,
       componentProps: {
-        'paciente': this.paciente,
+        paciente: this.paciente,
       }
     });
     return await modal.present();
   }
   regFamiliar() {
-    this.presentModal(RegFamiliarComponent)
+    this.presentModal(RegFamiliarComponent);
   }
 
   actualizar() {
@@ -77,6 +77,15 @@ export class InfoPacienteComponent implements OnInit {
 
   calendario() {
     this.presentModal(CalendarPage);
+  }
+
+  dismiss() {
+    // using the injected ModalController this page
+    // can "dismiss" itself and optionally pass back data
+    this.modalController.dismiss({
+      // tslint:disable-next-line:object-literal-key-quotes
+      'dismissed': true
+    });
   }
 
 }

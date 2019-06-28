@@ -1,12 +1,17 @@
 <ion-content>
 
-    <ion-card *ngFor="let p of pacientes" (click)="info(p.paciente.cc)">
+    <ion-card *ngFor="let p of pacientes" (click)="info(p.paciente.cc)" class="card">
         <ion-card-header>
-            <ion-card-subtitle>Cédula: {{p.paciente.cc}}</ion-card-subtitle>
-            <ion-card-title>Nombres: {{p.paciente.nombre}} {{p.paciente.apellidos}}</ion-card-title>
+            <img src="/assets/persona2.png">
+            <ion-card-title>
+                Nombres: {{p.paciente.nombre}} {{p.paciente.apellidos}}
+            </ion-card-title>
+            <ion-card-subtitle>
+                Cédula: {{p.paciente.cc}}
+            </ion-card-subtitle>
         </ion-card-header>
 
-        <ion-card-content> Información
+        <ion-card-content> Información:
             <p>
                 Género: {{p.paciente.genero}}
                 <br> Fecha de nacimiento: {{p.paciente.fechaNacimiento | date}}

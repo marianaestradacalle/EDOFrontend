@@ -22,11 +22,6 @@ export class MenuComponent implements OnInit {
     icon: 'contacts',
     titulo: 'Nosotros',
     redirectTo: '/inicio/nosotros'
-},
-{
-  icon: 'calendar',
-  titulo: 'Calendario',
-  redirectTo: '/inicio/calendar'
 }
 ];
 

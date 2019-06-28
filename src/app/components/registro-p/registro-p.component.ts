@@ -21,9 +21,12 @@ export class RegistroPComponent implements OnInit {
 
     this.forma = new FormGroup({
       cc: new FormControl('', [Validators.required, Validators.pattern('[0-9]{8,10}'), Validators.maxLength(10), Validators.minLength(8)]),
-      nombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZÑñ ]{1,30}'),Validators.maxLength(30), Validators.minLength(1)]),
-      apellidos: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZÑñ ]{1,30}'),Validators.maxLength(30), Validators.minLength(1)]),
-      genero: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]{1,10}'),Validators.maxLength(10), Validators.minLength(1)]),
+      // tslint:disable-next-line:max-line-length
+      nombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZÑñ ]{1,30}'), Validators.maxLength(30), Validators.minLength(1)]),
+      // tslint:disable-next-line:max-line-length
+      apellidos: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZÑñ ]{1,30}'), Validators.maxLength(30), Validators.minLength(1)]),
+      // tslint:disable-next-line:max-line-length
+      genero: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]{1,10}'), Validators.maxLength(10), Validators.minLength(1)]),
       fechaNacimiento: new FormControl('', [Validators.required, this.fechaValidate]),
       tarjeta: new FormControl('', [Validators.required])
     });
@@ -31,16 +34,16 @@ export class RegistroPComponent implements OnInit {
   }
 
 
-  get ccForm() { return this.forma.get('cc') }
-  get nombreForm() { return this.forma.get('nombre') }
-  get apellidoForm() { return this.forma.get('apellidos') }
-  get generoForm() { return this.forma.get('genero') }
-  get fechaNForm() { return this.forma.get('fechaNacimiento') }
-  get tarjetaForm() { return this.forma.get('tarjeta') }
+  get ccForm() { return this.forma.get('cc'); }
+  get nombreForm() { return this.forma.get('nombre'); }
+  get apellidoForm() { return this.forma.get('apellidos'); }
+  get generoForm() { return this.forma.get('genero'); }
+  get fechaNForm() { return this.forma.get('fechaNacimiento'); }
+  get tarjetaForm() { return this.forma.get('tarjeta'); }
 
   fechaValidate(control: AbstractControl) {
     if (new Date(control.value).getTime() >= new Date().getTime()) {
-      return { error: 'Fecha invalida' }
+      return { error: 'Fecha invalida' };
     } else {
       return null;
     }
